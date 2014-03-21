@@ -52,7 +52,13 @@ describe 'Expense' do
       Expense.search_by_description('Steak').should eq [test_expense2]
     end
   end
-
+  describe '#total_amount' do
+    it 'should return the total amount of the expenses' do
+      test_expense = Expense.create({ :description => 'Burger', :amount => 5.00, :date => '2014-04-12' })
+      test_expense2 = Expense.create({ :description => 'Fries', :amount => 2.50, :date => '2014-04-12' })
+      Expense.total_amount.should eq 7.50
+    end
+  end
 end
 
 

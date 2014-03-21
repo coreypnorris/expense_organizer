@@ -37,6 +37,11 @@ class Expense
     self.description == other.description && self.amount == other.amount && self.date == other.date && self.id == other.id
   end
 
+  def self.total_amount
+    result = DB.exec("SELECT SUM(amount) AS total_amount FROM expenses;")
+    result.first['total_amount'].to_f
+  end
+
   def self.search_by_description(input)
     results = DB.exec("SELECT * FROM expenses WHERE description = '#{input}';")
     found = []
