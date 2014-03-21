@@ -35,7 +35,6 @@ class Category
       expenses.each do |cat|
         if expense.id == cat
           total += expense.amount
-          p total
         end
       end
     end
@@ -63,7 +62,5 @@ class Category
     end
     found
   end
-
-
 
 end

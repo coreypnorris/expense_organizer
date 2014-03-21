@@ -24,6 +24,11 @@ describe 'Category_expenses' do
     it 'should be empty to start' do
       Category_expenses.all.should eq []
     end
+    it 'returns all objects in the category_expenses table' do
+      test_category_expense1 = Category_expenses.create({:category_id => 1, :expense_id => 2 })
+      test_category_expense2 = Category_expenses.create({:category_id => 3, :expense_id => 4 })
+      Category_expenses.all.should eq [test_category_expense1, test_category_expense2]
+    end
   end
 
   describe '#save' do

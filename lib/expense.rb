@@ -55,6 +55,4 @@ class Expense
     found
   end
 
-
-
 end
