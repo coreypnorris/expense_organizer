@@ -69,5 +69,16 @@ def list_expenses
   main_menu
 end
 
+# def delete_expense
+#   puts "\n\n"
+#   Expense.all.each_with_index do |expense, index|
+#     amount = "%.2f" % expense.amount
+#     puts " #{index+1}) #{expense.description} bought for $#{amount} on #{expense.date}"
+#   end
+#   print "Enter the number of the expense you would like to delete: "
+#   selection = gets.chomp.to_i
+
+# end
+
 
 welcome

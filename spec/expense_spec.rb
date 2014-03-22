@@ -37,6 +37,34 @@ describe 'Expense' do
     end
   end
 
+  describe '#destroy' do
+    it 'removes an object from the expenses table' do
+      test_expense1 = Expense.create({ :description => 'Burger', :amount => 5.25, :date => '2014-04-12' })
+      test_expense2 = Expense.create({ :description => 'Steak', :amount => 15.25, :date => '2014-04-12' })
+      test_expense1.destroy
+      Expense.all.should eq [test_expense2]
+    end
+  end
+
+  describe '#attach_to_category' do
+    it 'creates a category_expenses object with the instances expense id' do
+      test_expense = Expense.create({ :description => 'Burger', :amount => 5.25, :date => '2014-04-12' })
+      test_category = Category.create({ :name => 'Restaurant'})
+      test_expense.attach_to_category({ :expense_id => test_expense.id, :category_id => test_category.id })
+      Category_expenses.all.length.should eq 1
+    end
+  end
+
+  describe '#remove_from_category' do
+    it 'deletes a category_expenses object with the instances expense id' do
+      test_expense = Expense.create({ :description => 'Burger', :amount => 5.25, :date => '2014-04-12' })
+      test_category = Category.create({ :name => 'Restaurant'})
+      test_expense.attach_to_category({ :expense_id => test_expense.id, :category_id => test_category.id })
+      test_expense.remove_from_category(test_expense.id)
+      Category_expenses.all.should eq []
+    end
+  end
+
   describe '#==' do
     it 'should be equal to another expense if the description, amount, date, and id are equal' do
       test_expense1 = Expense.new({ :description => 'Burger', :amount => 5.25, :date => '2014-04-12', :id => 1 })

@@ -34,6 +34,7 @@ class Category_expenses
   def ==(other)
     self.id == other.id && self.category_id == other.category_id && self.expense_id == other.expense_id
   end
+
 end
 
 

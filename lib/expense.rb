@@ -33,8 +33,20 @@ class Expense
     @id = result.first['id'].to_i
   end
 
+  def destroy
+    DB.exec("DELETE FROM expenses WHERE id = #{@id}")
+  end
+
   def ==(other)
     self.description == other.description && self.amount == other.amount && self.date == other.date && self.id == other.id
+  end
+
+  def attach_to_category(attributes)
+    Category_expenses.create(attributes)
+  end
+
+  def remove_from_category(id)
+    DB.exec("DELETE FROM category_expenses WHERE expense_id = #{id};")
   end
 
   def self.total_amount
