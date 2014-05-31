@@ -88,12 +88,3 @@ describe 'Expense' do
     end
   end
 end
-
-
-
-
-
-
-
-
-

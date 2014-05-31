@@ -34,18 +34,6 @@ class Category_expenses
   def ==(other)
     self.id == other.id && self.category_id == other.category_id && self.expense_id == other.expense_id
   end
-
 end
 
-
-  # def self.search_by_name(input)
-  #   results = DB.exec("SELECT * FROM categories WHERE name = '#{input}';")
-  #   found = []
-  #   results.each do |result|
-  #     name = result['name']
-  #     id = result['id'].to_i
-  #     found << Category.new({ :name => name, :id => id})
-  #   end
-  #   found
-  # end
 

@@ -45,16 +45,4 @@ describe 'Category_expenses' do
       test_category_expense1.should eq test_category_expense2
     end
   end
-
-  # describe '#percent_of_total' do
-  #   it 'should return the percent of the total amount as attributed to that category' do
-
 end
-  # describe '.search_by_name' do
-  #   it 'should find the expense object based of the users input' do
-  #     test_expense1 = Category_expenses.create({ :name => 'Burger', :budget => 100 })
-  #     test_expense2 = Category.create({ :name => 'Steak', :budget => 120 })
-  #     Category.search_by_name('Steak').should eq [test_expense2]
-  #   end
-  # end
-
